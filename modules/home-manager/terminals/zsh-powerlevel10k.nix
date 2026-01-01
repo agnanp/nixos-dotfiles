@@ -9,6 +9,18 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
+	
+	shellAliases = {
+          ll = "ls -l";
+          edit = "sudo -e";
+          update = "sudo nixos-rebuild switch --flake /etc/nixos/#nixos";
+        };
+
+	history = {
+          size = 10000;
+          save = 10000;
+          ignoreAllDups = true;
+        };
 
         # Powerlevel10k theme
         initContent = ''

@@ -27,17 +27,15 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 3;
   
-  boot.lanzaboote.autoGenerateKeys.enable = true;
-  boot.lanzaboote.autoEnrollKeys = {
-    enable = true;
-    autoReboot = true;
-  };
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
+    autoGenerateKeys.enable = true;
+    autoEnrollKeys = {
+      enable = true;
+      autoReboot = true;
+    };
   };
-
-
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -171,24 +169,7 @@ in
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
   # Enable zsh system-wide
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      ll = "ls -l";
-      edit = "sudo -e";
-      update = "sudo nixos-rebuild switch --flake /etc/nixos/#nixos";
-    };
-
-    histSize = 10000;
-    histFile = "$HOME/.zsh_history";
-    setOptions = [
-      "HIST_IGNORE_ALL_DUPS"
-    ];
-  };
+  programs.zsh.enable = true;
   
   # Add zsh to /etc/shells
   environment.shells = with pkgs; [ zsh ];
