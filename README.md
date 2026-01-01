@@ -9,6 +9,8 @@
   - **WM/DE**: [optional]
 
   ## Structure
+
+  ```
   .
   ├── flake.nix                 # Main flake entry point
   ├── hosts/
@@ -23,6 +25,8 @@
       │   └── developer/
       └── home-manager/         # User modules
           └── terminals/
+  ```
+
 
   ## Usage
   ```bash
